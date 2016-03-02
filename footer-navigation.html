@@ -1,0 +1,13 @@
+<div class="row">
+    <br>
+    <div class="col-md-3">
+        <button class="btn btn-default btn-block" ng-click="panel.previousTab()"><h4><span class="glyphicon glyphicon-chevron-left"></span> Go Back</h4></button>
+    </div>
+    <div class="col-md-3 pull-right" ng-show="panel.isSelected(2) || panel.isSelected(3) || panel.isSelected(4) || panel.isSelected(5)">
+        <!--confirm button for the flavors page only-->
+        <button class="btn btn-default btn-block confirm" ng-click="panel.nextTab()" ng-show="panel.isSelected(2)" disabled="disabled"><h4><span class="glyphicon glyphicon-ok"></span> Confirm</h4></button>
+        <!--confirm button for the toppins page only-->
+        <button ng-show="panel.isSelected(3)" class="btn btn-default btn-block" ng-click="order.inputOrderTopping(); panel.nextTab()"><h4><span class="glyphicon glyphicon-ok"></span> Confirm</h4></button>
+    </div>
+</div>
+<br>

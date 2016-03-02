@@ -1,0 +1,40 @@
+<!-- summary table of all items in order -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-md-1">Edit Item</th>
+            <th class="col-md-3">Size</th>
+            <th class="col-md-3">Flavor(s)</th>
+            <th class="col-md-3">Topping(s)</th>
+            <th class="col-md-1">Price</th>
+            <th class="col-md-1">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="orders in order.allOrders">
+            <td><a href ng-click="panel.selectTab(1)"><button class="btn btn-default btn-block" ng-click="order.modifyOrder($index)"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+            <td>{{orders.size}}</td>
+            <td><li ng-repeat="choices in orders.flavor">{{choices}}</li></td>
+            <td><li ng-repeat="choices in orders.toppings">{{choices}}</li></td>
+            <td>{{orders.price | currency}}</td>
+            <td><button class="btn btn-default btn-block" ng-click="order.removeOrder($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <div class="col-md-12">
+                    <br><button class="btn btn-default btn-block" ng-click="order.clearCurrentOrder(); panel.selectTab(1)"><h4><span class="glyphicon glyphicon-plus"></span> Add Another Item</h4></button><br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td colspan="2"><p class="pull-right"><strong>Total:</strong> {{order.totalPrice | currency}}<br>
+                <strong>Taxes:</strong> {{order.totalPrice*0.07 | currency}}
+                <p class="pull-right"><strong>Total Due:</strong> {{order.totalPrice + (order.totalPrice*0.07) | currency}} </p></td>
+        </tr>
+    </tbody>
+</table>
+<div class="col-md-3 pull-right">
+    <button class="btn btn-default btn-block" ng-click="panel.selectTab(5)" ng-show="order.allOrders.length > 0"><h4>Pay Now</h4></button>
+    <br>
+</div>

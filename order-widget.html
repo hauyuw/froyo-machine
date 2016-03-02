@@ -1,0 +1,43 @@
+<!-- widget for current item being created/modified -->
+<div class="col-md-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>This item so far...</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <p><strong>Size:</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <p>{{order.currentOrder.size}}</p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row" style="padding-bottom: 7px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <p><strong>Flavor(s):</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <li ng-repeat="choices in order.currentOrder.flavor">{{choices}}</li>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row" style="padding-bottom: 7px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <p><strong>Toppings(s):</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <li ng-repeat="choice in order.choices">{{choice}}</li>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="panel-footer pull-right"><p><strong>Subtotal for item:</strong> {{order.currentOrder.price | currency}}</p>
+        <p><strong>Total for all items:</strong> {{order.totalPrice | currency}}</p>
+        </div>
+    </div>
+</div>
